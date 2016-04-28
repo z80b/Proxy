@@ -1,0 +1,1954 @@
+ErrorException Object
+(
+    [message:protected] => file_get_contents(http://flight.dev/api/test1?login=root&password=123&fam=Костин&name=Алексей&patron=Миронович&date_birth=1982-05-21): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+
+    [string:Exception:private] => 
+    [code:protected] => 2
+    [file:protected] => /home/z80b/Проекты/flight.dev/app/class/Http.php
+    [line:protected] => 15
+    [trace:Exception:private] => Array
+        (
+            [0] => Array
+                (
+                    [function] => handleError
+                    [class] => flight\Engine
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 2
+                            [1] => file_get_contents(http://flight.dev/api/test1?login=root&password=123&fam=Костин&name=Алексей&patron=Миронович&date_birth=1982-05-21): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+
+                            [2] => /home/z80b/Проекты/flight.dev/app/class/Http.php
+                            [3] => 15
+                            [4] => Array
+                                (
+                                    [link] => http://flight.dev/api/test1?login=root&password=123&fam=Костин&name=Алексей&patron=Миронович&date_birth=1982-05-21
+                                    [http_response_header] => Array
+                                        (
+                                            [0] => HTTP/1.0 404 Not Found
+                                            [1] => Date: Fri, 22 Apr 2016 18:09:05 GMT
+                                            [2] => Server: Apache/2.4.10 (Unix) OpenSSL/1.0.1j PHP/5.6.3 mod_perl/2.0.8-dev Perl/v5.16.3
+                                            [3] => X-Powered-By: PHP/5.6.3
+                                            [4] => Set-Cookie: PHPSESSID=ie2k4beg7a5ojrfii4j7tmp093; path=/
+                                            [5] => Expires: Thu, 19 Nov 1981 08:52:00 GMT
+                                            [6] => Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+                                            [7] => Pragma: no-cache
+                                            [8] => Content-Length: 590
+                                            [9] => Connection: close
+                                            [10] => Content-Type: text/html; charset=UTF-8
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/class/Http.php
+                    [line] => 15
+                    [function] => file_get_contents
+                    [args] => Array
+                        (
+                            [0] => http://flight.dev/api/test1?login=root&password=123&fam=Костин&name=Алексей&patron=Миронович&date_birth=1982-05-21
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/class/Http.php
+                    [line] => 9
+                    [function] => get
+                    [class] => Http
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => http://flight.dev/api/test1?login=root&password=123&fam=Костин&name=Алексей&patron=Миронович&date_birth=1982-05-21
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/class/App.php
+                    [line] => 8
+                    [function] => getData
+                    [class] => Http
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => flight\util\Collection Object
+                                (
+                                    [data:flight\util\Collection:private] => Array
+                                        (
+                                            [login] => root
+                                            [password] => 123
+                                            [fam] => Костин
+                                            [name] => Алексей
+                                            [patron] => Миронович
+                                            [date_birth] => 1982-05-21
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 192
+                    [function] => getData
+                    [class] => App
+                    [type] => ::
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 142
+                    [function] => invokeMethod
+                    [class] => flight\core\Dispatcher
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [0] => App
+                                    [1] => getData
+                                )
+
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [6] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/Engine.php
+                    [line] => 313
+                    [function] => execute
+                    [class] => flight\core\Dispatcher
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [0] => App
+                                    [1] => getData
+                                )
+
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 191
+                    [function] => _start
+                    [class] => flight\Engine
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 142
+                    [function] => invokeMethod
+                    [class] => flight\core\Dispatcher
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [0] => flight\Engine Object
+                                        (
+                                            [vars:protected] => Array
+                                                (
+                                                    [flight.base_url] => 
+                                                    [flight.case_sensitive] => 
+                                                    [flight.handle_errors] => 1
+                                                    [flight.log_errors] => 
+                                                    [flight.views.path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                    [flight.views.extension] => .tpl
+                                                    [config] => Array
+                                                        (
+                                                            [login] => root
+                                                            [password] => 123
+                                                            [data_server] => http://flight.dev/api/test1
+                                                            [db] => Array
+                                                                (
+                                                                    [host] => localhost
+                                                                    [base] => proxi
+                                                                    [user] => root
+                                                                    [pass] => 
+                                                                    [charset] => utf8
+                                                                )
+
+                                                            [public] => Array
+                                                                (
+                                                                    [css] => styles.css
+                                                                    [script] => script.js
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [loader:protected] => flight\core\Loader Object
+                                                (
+                                                    [classes:protected] => Array
+                                                        (
+                                                            [request] => Array
+                                                                (
+                                                                    [0] => \flight\net\Request
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [response] => Array
+                                                                (
+                                                                    [0] => \flight\net\Response
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [router] => Array
+                                                                (
+                                                                    [0] => \flight\net\Router
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [0] => \flight\template\View
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [static] => Array
+                                                                                (
+                                                                                    [self] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                            [this] => flight\Engine Object
+ *RECURSION*
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$view] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                            [db] => Array
+                                                                (
+                                                                    [0] => PDO
+                                                                    [1] => Array
+                                                                        (
+                                                                            [0] => mysql:host=localhost;dnbname=proxi;charset=utf8
+                                                                            [1] => root
+                                                                            [2] => 
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$db] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [instances:protected] => Array
+                                                        (
+                                                            [router] => flight\net\Router Object
+                                                                (
+                                                                    [routes:protected] => Array
+                                                                        (
+                                                                            [0] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /auth
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => auth
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [1] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => *
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [2] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => viewData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [3] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /server
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [4] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/all
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [5] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/test
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => Test
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [6] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/getdata
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => /api/getdata/?
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [7] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /login
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => login
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [8] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /logout
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => logout
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                        )
+
+                                                                    [index:protected] => 6
+                                                                    [case_sensitive] => 
+                                                                )
+
+                                                            [view] => flight\template\View Object
+                                                                (
+                                                                    [path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                                    [extension] => .tpl
+                                                                    [vars:protected] => Array
+                                                                        (
+                                                                            [styles] => 
+                                                                            [head_content] => 
+                                                                        )
+
+                                                                    [template:flight\template\View:private] => /home/z80b/Проекты/flight.dev/app/tpls/head.tpl
+                                                                )
+
+                                                            [request] => flight\net\Request Object
+                                                                (
+                                                                    [url] => /api/getdata?login=root&password=123&fam=%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD&name=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9&patron=%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D0%BE%D0%B2%D0%B8%D1%87&date_birth=1982-05-21
+                                                                    [base] => /
+                                                                    [method] => GET
+                                                                    [referrer] => 
+                                                                    [ip] => 127.0.0.1
+                                                                    [ajax] => 
+                                                                    [scheme] => HTTP/1.1
+                                                                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/49.0.2623.108 Chrome/49.0.2623.108 Safari/537.36
+                                                                    [type] => 
+                                                                    [length] => 0
+                                                                    [query] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [login] => root
+                                                                                    [password] => 123
+                                                                                    [fam] => Костин
+                                                                                    [name] => Алексей
+                                                                                    [patron] => Миронович
+                                                                                    [date_birth] => 1982-05-21
+                                                                                )
+
+                                                                        )
+
+                                                                    [data] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [cookies] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [PHPSESSID] => k3k077v0gt405mhlspc31oltd0
+                                                                                )
+
+                                                                        )
+
+                                                                    [files] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [secure] => 
+                                                                    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+                                                                    [proxy_ip] => 
+                                                                )
+
+                                                            [response] => flight\net\Response Object
+                                                                (
+                                                                    [status:protected] => 200
+                                                                    [headers:protected] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [body:protected] => 
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [dispatcher:protected] => flight\core\Dispatcher Object
+                                                (
+                                                    [events:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _start
+                                                                )
+
+                                                            [stop] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _stop
+                                                                )
+
+                                                            [route] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _route
+                                                                )
+
+                                                            [halt] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _halt
+                                                                )
+
+                                                            [error] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _error
+                                                                )
+
+                                                            [notFound] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _notFound
+                                                                )
+
+                                                            [render] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _render
+                                                                )
+
+                                                            [redirect] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _redirect
+                                                                )
+
+                                                            [etag] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _etag
+                                                                )
+
+                                                            [lastModified] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _lastModified
+                                                                )
+
+                                                            [json] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _json
+                                                                )
+
+                                                            [jsonp] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _jsonp
+                                                                )
+
+                                                            [renderBody] => Closure Object
+                                                                (
+                                                                    [parameter] => Array
+                                                                        (
+                                                                            [$tpl] => 
+                                                                            [$params] => 
+                                                                            [$aliase] => 
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [filters:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [after] => Array
+                                                                        (
+                                                                            [0] => Closure Object
+                                                                                (
+                                                                                    [static] => Array
+                                                                                        (
+                                                                                            [self] => flight\Engine Object
+ *RECURSION*
+                                                                                        )
+
+                                                                                    [this] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [1] => _start
+                                )
+
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 48
+                    [function] => execute
+                    [class] => flight\core\Dispatcher
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [0] => flight\Engine Object
+                                        (
+                                            [vars:protected] => Array
+                                                (
+                                                    [flight.base_url] => 
+                                                    [flight.case_sensitive] => 
+                                                    [flight.handle_errors] => 1
+                                                    [flight.log_errors] => 
+                                                    [flight.views.path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                    [flight.views.extension] => .tpl
+                                                    [config] => Array
+                                                        (
+                                                            [login] => root
+                                                            [password] => 123
+                                                            [data_server] => http://flight.dev/api/test1
+                                                            [db] => Array
+                                                                (
+                                                                    [host] => localhost
+                                                                    [base] => proxi
+                                                                    [user] => root
+                                                                    [pass] => 
+                                                                    [charset] => utf8
+                                                                )
+
+                                                            [public] => Array
+                                                                (
+                                                                    [css] => styles.css
+                                                                    [script] => script.js
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [loader:protected] => flight\core\Loader Object
+                                                (
+                                                    [classes:protected] => Array
+                                                        (
+                                                            [request] => Array
+                                                                (
+                                                                    [0] => \flight\net\Request
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [response] => Array
+                                                                (
+                                                                    [0] => \flight\net\Response
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [router] => Array
+                                                                (
+                                                                    [0] => \flight\net\Router
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [0] => \flight\template\View
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [static] => Array
+                                                                                (
+                                                                                    [self] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                            [this] => flight\Engine Object
+ *RECURSION*
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$view] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                            [db] => Array
+                                                                (
+                                                                    [0] => PDO
+                                                                    [1] => Array
+                                                                        (
+                                                                            [0] => mysql:host=localhost;dnbname=proxi;charset=utf8
+                                                                            [1] => root
+                                                                            [2] => 
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$db] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [instances:protected] => Array
+                                                        (
+                                                            [router] => flight\net\Router Object
+                                                                (
+                                                                    [routes:protected] => Array
+                                                                        (
+                                                                            [0] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /auth
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => auth
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [1] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => *
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [2] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => viewData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [3] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /server
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [4] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/all
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [5] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/test
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => Test
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [6] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/getdata
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => /api/getdata/?
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [7] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /login
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => login
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [8] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /logout
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => logout
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                        )
+
+                                                                    [index:protected] => 6
+                                                                    [case_sensitive] => 
+                                                                )
+
+                                                            [view] => flight\template\View Object
+                                                                (
+                                                                    [path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                                    [extension] => .tpl
+                                                                    [vars:protected] => Array
+                                                                        (
+                                                                            [styles] => 
+                                                                            [head_content] => 
+                                                                        )
+
+                                                                    [template:flight\template\View:private] => /home/z80b/Проекты/flight.dev/app/tpls/head.tpl
+                                                                )
+
+                                                            [request] => flight\net\Request Object
+                                                                (
+                                                                    [url] => /api/getdata?login=root&password=123&fam=%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD&name=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9&patron=%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D0%BE%D0%B2%D0%B8%D1%87&date_birth=1982-05-21
+                                                                    [base] => /
+                                                                    [method] => GET
+                                                                    [referrer] => 
+                                                                    [ip] => 127.0.0.1
+                                                                    [ajax] => 
+                                                                    [scheme] => HTTP/1.1
+                                                                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/49.0.2623.108 Chrome/49.0.2623.108 Safari/537.36
+                                                                    [type] => 
+                                                                    [length] => 0
+                                                                    [query] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [login] => root
+                                                                                    [password] => 123
+                                                                                    [fam] => Костин
+                                                                                    [name] => Алексей
+                                                                                    [patron] => Миронович
+                                                                                    [date_birth] => 1982-05-21
+                                                                                )
+
+                                                                        )
+
+                                                                    [data] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [cookies] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [PHPSESSID] => k3k077v0gt405mhlspc31oltd0
+                                                                                )
+
+                                                                        )
+
+                                                                    [files] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [secure] => 
+                                                                    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+                                                                    [proxy_ip] => 
+                                                                )
+
+                                                            [response] => flight\net\Response Object
+                                                                (
+                                                                    [status:protected] => 200
+                                                                    [headers:protected] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [body:protected] => 
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [dispatcher:protected] => flight\core\Dispatcher Object
+                                                (
+                                                    [events:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _start
+                                                                )
+
+                                                            [stop] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _stop
+                                                                )
+
+                                                            [route] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _route
+                                                                )
+
+                                                            [halt] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _halt
+                                                                )
+
+                                                            [error] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _error
+                                                                )
+
+                                                            [notFound] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _notFound
+                                                                )
+
+                                                            [render] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _render
+                                                                )
+
+                                                            [redirect] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _redirect
+                                                                )
+
+                                                            [etag] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _etag
+                                                                )
+
+                                                            [lastModified] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _lastModified
+                                                                )
+
+                                                            [json] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _json
+                                                                )
+
+                                                            [jsonp] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _jsonp
+                                                                )
+
+                                                            [renderBody] => Closure Object
+                                                                (
+                                                                    [parameter] => Array
+                                                                        (
+                                                                            [$tpl] => 
+                                                                            [$params] => 
+                                                                            [$aliase] => 
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [filters:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [after] => Array
+                                                                        (
+                                                                            [0] => Closure Object
+                                                                                (
+                                                                                    [static] => Array
+                                                                                        (
+                                                                                            [self] => flight\Engine Object
+ *RECURSION*
+                                                                                        )
+
+                                                                                    [this] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [1] => _start
+                                )
+
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/Engine.php
+                    [line] => 64
+                    [function] => run
+                    [class] => flight\core\Dispatcher
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => start
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 191
+                    [function] => __call
+                    [class] => flight\Engine
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => start
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [12] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/core/Dispatcher.php
+                    [line] => 191
+                    [function] => start
+                    [class] => flight\Engine
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [13] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/app/vendor/mikecao/flight/flight/Flight.php
+                    [line] => 76
+                    [function] => invokeMethod
+                    [class] => flight\core\Dispatcher
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [0] => flight\Engine Object
+                                        (
+                                            [vars:protected] => Array
+                                                (
+                                                    [flight.base_url] => 
+                                                    [flight.case_sensitive] => 
+                                                    [flight.handle_errors] => 1
+                                                    [flight.log_errors] => 
+                                                    [flight.views.path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                    [flight.views.extension] => .tpl
+                                                    [config] => Array
+                                                        (
+                                                            [login] => root
+                                                            [password] => 123
+                                                            [data_server] => http://flight.dev/api/test1
+                                                            [db] => Array
+                                                                (
+                                                                    [host] => localhost
+                                                                    [base] => proxi
+                                                                    [user] => root
+                                                                    [pass] => 
+                                                                    [charset] => utf8
+                                                                )
+
+                                                            [public] => Array
+                                                                (
+                                                                    [css] => styles.css
+                                                                    [script] => script.js
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [loader:protected] => flight\core\Loader Object
+                                                (
+                                                    [classes:protected] => Array
+                                                        (
+                                                            [request] => Array
+                                                                (
+                                                                    [0] => \flight\net\Request
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [response] => Array
+                                                                (
+                                                                    [0] => \flight\net\Response
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [router] => Array
+                                                                (
+                                                                    [0] => \flight\net\Router
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => 
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [0] => \flight\template\View
+                                                                    [1] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [static] => Array
+                                                                                (
+                                                                                    [self] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                            [this] => flight\Engine Object
+ *RECURSION*
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$view] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                            [db] => Array
+                                                                (
+                                                                    [0] => PDO
+                                                                    [1] => Array
+                                                                        (
+                                                                            [0] => mysql:host=localhost;dnbname=proxi;charset=utf8
+                                                                            [1] => root
+                                                                            [2] => 
+                                                                        )
+
+                                                                    [2] => Closure Object
+                                                                        (
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$db] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [instances:protected] => Array
+                                                        (
+                                                            [router] => flight\net\Router Object
+                                                                (
+                                                                    [routes:protected] => Array
+                                                                        (
+                                                                            [0] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /auth
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => auth
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [1] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => *
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [2] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => viewData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [3] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /server
+                                                                                    [callback] => Closure Object
+                                                                                        (
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [4] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/all
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [5] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/test
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => Test
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [6] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /api/getdata
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => App
+                                                                                            [1] => getData
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => /api/getdata/?
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [7] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /login
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => login
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                            [8] => flight\net\Route Object
+                                                                                (
+                                                                                    [pattern] => /logout
+                                                                                    [callback] => Array
+                                                                                        (
+                                                                                            [0] => User
+                                                                                            [1] => logout
+                                                                                        )
+
+                                                                                    [methods] => Array
+                                                                                        (
+                                                                                            [0] => *
+                                                                                        )
+
+                                                                                    [params] => Array
+                                                                                        (
+                                                                                        )
+
+                                                                                    [regex] => 
+                                                                                    [splat] => 
+                                                                                    [pass] => 
+                                                                                )
+
+                                                                        )
+
+                                                                    [index:protected] => 6
+                                                                    [case_sensitive] => 
+                                                                )
+
+                                                            [view] => flight\template\View Object
+                                                                (
+                                                                    [path] => /home/z80b/Проекты/flight.dev/app/tpls
+                                                                    [extension] => .tpl
+                                                                    [vars:protected] => Array
+                                                                        (
+                                                                            [styles] => 
+                                                                            [head_content] => 
+                                                                        )
+
+                                                                    [template:flight\template\View:private] => /home/z80b/Проекты/flight.dev/app/tpls/head.tpl
+                                                                )
+
+                                                            [request] => flight\net\Request Object
+                                                                (
+                                                                    [url] => /api/getdata?login=root&password=123&fam=%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD&name=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9&patron=%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D0%BE%D0%B2%D0%B8%D1%87&date_birth=1982-05-21
+                                                                    [base] => /
+                                                                    [method] => GET
+                                                                    [referrer] => 
+                                                                    [ip] => 127.0.0.1
+                                                                    [ajax] => 
+                                                                    [scheme] => HTTP/1.1
+                                                                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/49.0.2623.108 Chrome/49.0.2623.108 Safari/537.36
+                                                                    [type] => 
+                                                                    [length] => 0
+                                                                    [query] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [login] => root
+                                                                                    [password] => 123
+                                                                                    [fam] => Костин
+                                                                                    [name] => Алексей
+                                                                                    [patron] => Миронович
+                                                                                    [date_birth] => 1982-05-21
+                                                                                )
+
+                                                                        )
+
+                                                                    [data] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [cookies] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                    [PHPSESSID] => k3k077v0gt405mhlspc31oltd0
+                                                                                )
+
+                                                                        )
+
+                                                                    [files] => flight\util\Collection Object
+                                                                        (
+                                                                            [data:flight\util\Collection:private] => Array
+                                                                                (
+                                                                                )
+
+                                                                        )
+
+                                                                    [secure] => 
+                                                                    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+                                                                    [proxy_ip] => 
+                                                                )
+
+                                                            [response] => flight\net\Response Object
+                                                                (
+                                                                    [status:protected] => 200
+                                                                    [headers:protected] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [body:protected] => 
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [dispatcher:protected] => flight\core\Dispatcher Object
+                                                (
+                                                    [events:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _start
+                                                                )
+
+                                                            [stop] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _stop
+                                                                )
+
+                                                            [route] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _route
+                                                                )
+
+                                                            [halt] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _halt
+                                                                )
+
+                                                            [error] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _error
+                                                                )
+
+                                                            [notFound] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _notFound
+                                                                )
+
+                                                            [render] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _render
+                                                                )
+
+                                                            [redirect] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _redirect
+                                                                )
+
+                                                            [etag] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _etag
+                                                                )
+
+                                                            [lastModified] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _lastModified
+                                                                )
+
+                                                            [json] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _json
+                                                                )
+
+                                                            [jsonp] => Array
+                                                                (
+                                                                    [0] => flight\Engine Object
+ *RECURSION*
+                                                                    [1] => _jsonp
+                                                                )
+
+                                                            [renderBody] => Closure Object
+                                                                (
+                                                                    [parameter] => Array
+                                                                        (
+                                                                            [$tpl] => 
+                                                                            [$params] => 
+                                                                            [$aliase] => 
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [filters:protected] => Array
+                                                        (
+                                                            [start] => Array
+                                                                (
+                                                                    [after] => Array
+                                                                        (
+                                                                            [0] => Closure Object
+                                                                                (
+                                                                                    [static] => Array
+                                                                                        (
+                                                                                            [self] => flight\Engine Object
+ *RECURSION*
+                                                                                        )
+
+                                                                                    [this] => flight\Engine Object
+ *RECURSION*
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [1] => start
+                                )
+
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/index.php
+                    [line] => 11
+                    [function] => __callStatic
+                    [class] => Flight
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => start
+                            [1] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [15] => Array
+                (
+                    [file] => /home/z80b/Проекты/flight.dev/index.php
+                    [line] => 11
+                    [function] => start
+                    [class] => Flight
+                    [type] => ::
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [previous:Exception:private] => 
+    [severity:protected] => 0
+)

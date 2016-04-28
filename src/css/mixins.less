@@ -1,0 +1,37 @@
+.block { display: block; }
+.box-sizing (@type: border-box) {
+	-webkit-box-sizing: @type;
+	   -moz-box-sizing: @type;
+	        box-sizing: @type;
+}
+
+.absolute { position: absolute; }
+.relative { position: relative; }
+
+.pos(@x, @y) { .absolute; left: @x; top: @y; }
+.posb(@x, @y) { .absolute; left: @x; bottom: @y; }
+
+.size(@w, @h) { width: @w; height: @h; }
+.size(@x, @y, @w, @h) { .pos(@x, @y); width: @w; height: @h; }
+.sizeb(@x, @y, @w, @h) { .posb(@x, @y); width: @w; height: @h; }
+
+.transform(@value) {
+  -webkit-transform: @value;
+     -moz-transform: @value;
+      -ms-transform: @value;
+       -o-transform: @value;
+          transform: @value;
+}
+
+.border-radius(@lt, @rt, @rb, @lb){
+  -webkit-border-radius: @arguments;
+  -moz-border-radius:  @arguments;
+  -ms-border-radius: @arguments;
+  -o-border-radius: @arguments;
+  border-radius: @arguments;
+}
+.border-radius(@r: 6px){ .border-radius(@r, @r, @r, @r); }
+.border-radius(left, @r: 6px) { .border-radius(@r, 0, 0, @r); }
+.border-radius(right, @r: 6px) { .border-radius(0, @r, @r, 0); }
+.border-radius(top, @r: 6px) { .border-radius(@r, @r, 0, 0); }
+.border-radius(bottom, @r: 6px) { .border-radius(0, 0, @r, @r); }
