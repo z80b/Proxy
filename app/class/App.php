@@ -15,7 +15,8 @@ class App extends Flight {
 			'area' => 0,
 		];
 
-		$query = array_merge($defaults, $_GET);
+		$query = array_merge($defaults, array_diff_key($_GET, [ 'auth' => NULL ]));
+
 		$response = json_decode(Http::getData($query), true);
 
 		if (isset($response['status'])) {
