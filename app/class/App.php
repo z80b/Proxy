@@ -7,12 +7,11 @@ class App extends Flight {
 	public function getData() {
 
 		$defaults = [
-			'login' => '',
+			'area' => 0,
+			'birth' => '',
+			'patron' => '',				
 			'name' => '',
 			'fam' => '',
-			'patron' => '',
-			'date_birth' => '',
-			'area' => 0,
 		];
 
 		$query = array_merge($defaults, array_diff_key($_GET, [ 'auth' => NULL ]));
@@ -23,14 +22,13 @@ class App extends Flight {
 
 			$stm = Flight::db()->prepare("
 				INSERT INTO  getdata (`login`, `fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
-				VALUES (:login, :fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
+				VALUES (:fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
 			");
 
-			$stm->bindValue('login',  $query['login'],      PDO::PARAM_STR);
 			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
 			$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
 			$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
-			$stm->bindValue('birth',  $query['date_birth'], PDO::PARAM_STR);
+			$stm->bindValue('birth',  $query['birth'],      PDO::PARAM_STR);
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
 			$stm->bindValue('status', $response['status'],  PDO::PARAM_INT);
 
@@ -48,7 +46,7 @@ class App extends Flight {
 		} else $page = 1;
 
 		$stm = Flight::db()->prepare("
-			SELECT SQL_CALC_FOUND_ROWS d.login, d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`
+			SELECT SQL_CALC_FOUND_ROWS d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`
 			FROM `getdata` AS `d`
 			LEFT JOIN `regions` AS `r` ON `r`.`id` = `d`.`area`
 			LIMIT :offset, :count
