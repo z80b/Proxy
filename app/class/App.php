@@ -21,7 +21,7 @@ class App extends Flight {
 		if (isset($response['status'])) {
 
 			$stm = Flight::db()->prepare("
-				INSERT INTO  getdata (`login`, `fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
+				INSERT INTO  getdata (`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
 				VALUES (:fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
 			");
 
