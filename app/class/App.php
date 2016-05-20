@@ -18,24 +18,32 @@ class App extends Flight {
 
 		$response = json_decode(Http::getData($query), true);
 
-		if (isset($response['status'])) {
+		if (isset($response['error']) && !$response['error']) {
 
 			$stm = Flight::db()->prepare("
-				INSERT INTO  getdata (`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
-				VALUES (:fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
+				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
+				VALUES ('',:fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
 			");
 
 			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
 			$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
 			$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
-			$stm->bindValue('birth',  $query['birth'],      PDO::PARAM_STR);
+			$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
-			$stm->bindValue('status', $response['status'],  PDO::PARAM_INT);
+			$stm->bindValue('status', $response['error'] ? 0 : 1,  PDO::PARAM_INT);
 
 			$stm->execute();
 
 			Flight::json($response);
 		} else Flight::json(Http::error);
+	}
+
+	private function correctDate($date) {
+		$p = explode('/', $date);
+		if (count($p) == 3) {
+			return $p[2]. '-' .$p[1] . '-' $p[0];
+		}
+		return '0000-00-00';
 	}
 
 	public function viewData() {

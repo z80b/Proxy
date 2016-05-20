@@ -4,11 +4,8 @@ class Http {
 	static public $url;
 
 	const error = [
-        'status' => 0,
-        'data' => [
-            'message' => 'Can not connect to server',
-            'error' => 1,
-        ],
+        'error' => true,
+        'data' => [],
     ];
 
 	public function getData( &$data ) {
