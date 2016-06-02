@@ -1,6 +1,6 @@
 <?php
 
-class App extends Flight {
+class App {
 
 	static $lines_per_page = 10;
 
@@ -13,6 +13,8 @@ class App extends Flight {
 			'name' => '',
 			'fam' => '',
 		];
+
+		$config = Flight::get('config');
 
 		$query = array_merge($defaults, array_diff_key($_GET, [ 'auth' => NULL ]));
 
@@ -34,14 +36,34 @@ class App extends Flight {
 
 			$stm->execute();
 
+			if (isset($config['fields'])) {
+				$response = self::trnaslateFields($response, $config['fields']);
+			}			
+
 			Flight::json($response);
 		} else Flight::json(Http::error);
 	}
 
+	public function json($data, $code = 200, $encode = false, $charset = 'utf-8') {
+		Flight::json(json_encode($data, JSON_UNESCAPED_UNICODE), $code, $encode, $charset);
+	}
+
+	public function getAllData() {
+		$stm = Flight::db()->prepare("
+			SELECT d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`
+			FROM `getdata` AS `d`
+			LEFT JOIN `regions` AS `r` ON `r`.`id` = `d`.`area`
+		");
+		$stm->execute();
+
+	    $data =  $stm->fetchAll(PDO::FETCH_ASSOC);
+	    App::json($data);			
+	}
+
 	private function correctDate($date) {
-		$p = explode('/', $date);
-		if (count($p) == 3) {
-			return $p[2]. '-' .$p[1] . '-' $p[0];
+		$dt_parts = explode('/', $date);
+		if (count($dt_parts) == 3) {
+			return implode('-', array_reverse($dt_parts));
 		}
 		return '0000-00-00';
 	}
@@ -62,7 +84,7 @@ class App extends Flight {
 		$stm->bindValue('offset', ($page - 1) * self::$lines_per_page, PDO::PARAM_INT);
 		$stm->bindValue('count', self::$lines_per_page, PDO::PARAM_INT);
 		$stm->execute();
-	    $data = $stm->fetchAll();
+	    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
 
 	    $rs = Flight::db()->query("SELECT FOUND_ROWS()");
 	    $count = $rs->fetchColumn();
@@ -87,5 +109,14 @@ class App extends Flight {
 		Flight::renderBody('server', [ 'data' => $_SERVER, 'title' => 'Server variables' ]);
 	}
 
-	
+	private function trnaslateFields(&$response, $fields) {
+		function translate($item) {
+			$newItem = array();
+			foreach ($fields as $key => $field) {
+				$newItem[$field] = $item[$key];
+			}
+			return $newItem;
+		}
+		$response['data'] = array_map('translate', $response['data']);
+	}
 }
