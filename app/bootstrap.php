@@ -10,12 +10,6 @@ Flight::path(__DIR__.'/class');
 Flight::set('flight.views.path', __DIR__ . '/tpls');
 FLight::set('flight.views.extension', '.tpl');
 
-// Flight::register('app', 'App');
-// Flight::register('http', 'Http');
-// Flight::register('user', 'User');
-// Flight::register('test', 'Test');
-// Flight::register('var', 'Var');
-
 Flight::render('head', array (
 	'styles' => '<link rel="stylesheet" href="/public/styles.css">',
 ), 'head_content');

@@ -19,7 +19,8 @@ class Http {
             $response = file_get_contents($link);
             return $response;
         } catch(Exception $e) {
-            App::debug($e);
+#            App::debug($e);
+             die();            
             return self::error;
         }
 	}
@@ -36,6 +37,6 @@ class Http {
 			$params[] = $key. '=' .$value;
 		}
 
-		return $url . '?' . implode('&', $params);		
+		return $url . '?' . implode('&', $params);	
 	}
 }
