@@ -9,14 +9,14 @@ class App {
 		$defaults = [
 			'area' => 0,
 			'birth' => '',
-			'patron' => '',				
+			'patron' => '',
 			'name' => '',
 			'fam' => '',
 		];
 
 		$config = Flight::get('config');
 
-		$query = array_merge($defaults, array_diff_key($_GET, [ 'auth' => NULL ]));
+		$query = array_merge($defaults, array_diff_key(self::decode($_GET), [ 'auth' => NULL ]));
 
 		$response = json_decode(Http::getData($query), true);
 
@@ -24,7 +24,7 @@ class App {
 
 			$stm = Flight::db()->prepare("
 				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
-				VALUES ('',:fam, :name, :patron, :birth, CURRENT_DATE(), :area, :status);
+				VALUES ('',:fam, :name, :patron, :birth, now(), :area, :status);
 			");
 
 			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
@@ -37,8 +37,8 @@ class App {
 			$stm->execute();
 
 			if (isset($config['fields'])) {
-				$response = self::trnaslateFields($response, $config['fields']);
-			}			
+				$response = self::translateFields($response, $config['fields']);
+			}
 
 			Flight::json($response);
 		} else Flight::json(Http::error);
@@ -57,7 +57,17 @@ class App {
 		$stm->execute();
 
 	    $data =  $stm->fetchAll(PDO::FETCH_ASSOC);
-	    App::json($data);			
+	    App::json($data);
+	}
+
+	private function decode($params) {
+		$_params = array();
+		foreach ($params as $key => $param) {
+			if (mb_detect_encoding($param, array('utf-8', 'windows-1251')) != 'UTF-8') {
+				$_params[$key] = iconv('windows-1251', 'utf-8', $param);
+			} else $_params[$key] = $param;
+		}
+		return $_params;
 	}
 
 	private function correctDate($date) {
@@ -109,14 +119,20 @@ class App {
 		Flight::renderBody('server', [ 'data' => $_SERVER, 'title' => 'Server variables' ]);
 	}
 
-	private function trnaslateFields(&$response, $fields) {
-		function translate($item) {
-			$newItem = array();
-			foreach ($fields as $key => $field) {
-				$newItem[$field] = $item[$key];
-			}
-			return $newItem;
-		}
-		$response['data'] = array_map('translate', $response['data']);
+	private function translateFields($_response, &$_fields) {
+	    function translateItem($data, $_fields) {
+	        $new_data = array();
+	        foreach ($data as $key => $value) {
+	            if ($_fields[$key]) $new_data[$_fields[$key]] = $value;
+	            else $new_data[$key] = $value;
+	        }
+	        return $new_data;
+	    }
+	    $new_data = array();
+	    foreach ($_response['data'] as $key => $item) {
+	        $new_data[$key] = translateItem($item, $_fields);
+	    }
+	    $_response['data'] = $new_data;
+	    return $_response;
 	}
 }

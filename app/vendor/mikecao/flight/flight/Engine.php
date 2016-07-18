@@ -454,7 +454,7 @@ class Engine {
      * @param string $charset Charset
      */
     public function _json($data, $code = 200, $encode = true, $charset = 'utf-8') {
-        $json = ($encode) ? json_encode($data) : $data;
+        $json = ($encode) ? json_encode($data, JSON_UNESCAPED_UNICODE) : $data;
 
         $this->response()
             ->status($code)
@@ -473,7 +473,7 @@ class Engine {
      * @param string $charset Charset
      */
     public function _jsonp($data, $param = 'jsonp', $code = 200, $encode = true, $charset = 'utf-8') {
-        $json = ($encode) ? json_encode($data) : $data;
+        $json = ($encode) ? json_encode($data, JSON_UNESCAPED_UNICODE) : $data;
 
         $callback = $this->request()->query[$param];
 
