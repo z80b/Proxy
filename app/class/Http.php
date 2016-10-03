@@ -4,7 +4,8 @@ class Http {
 	static public $url;
 
 	const error = [
-        'error' => true,
+        'error' => 1,
+		'description' => 'file_get_contents not work',
         'data' => [],
     ];
 
@@ -16,11 +17,16 @@ class Http {
 
 	public function get($link) {
         try {
-            $response = file_get_contents($link);
-            return $response;
-        } catch(Exception $e) {
-#            App::debug($e);
-             die();            
+			$curlSession = curl_init();
+			curl_setopt($curlSession, CURLOPT_URL, $link);
+			curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+			curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+
+			$response = curl_exec($curlSession);
+			
+			curl_close($curlSession);			
+            return $response;//file_get_contents($link);
+        } catch(Exception $e) {       
             return self::error;
         }
 	}

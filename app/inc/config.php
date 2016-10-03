@@ -1,19 +1,19 @@
 <?php
 
 Flight::set('config', [
-	'login' => 'user1',
-	'password' => '3qIQ76XbmE',
+	'login' => 'root',
+	'password' => '123',
 
-#	'data_server' => 'http://flight.dev/api/test',
+	'data_server' => 'https://raw.githubusercontent.com/z80b/Proxy/master/test_big.txt',
 #        'data_server' => 'http://fssp.dackb.ru/api/test',
 #       'data_server' => 'http://nagios.ckb.ru/api/getdata',
-        'data_server' => 'http://fssp.dackb.ru/test.txt/',       
+#        'data_server' => 'http://fssp.dackb.ru/test.txt/',       
 
 	'db' => [
 		'host' => 'localhost',
 		'base' => 'proxi',
 		'user' => 'root',
-		'pass' => '123123qwe',
+		'pass' => '',
 		'charset' => 'utf8'
 	],
 

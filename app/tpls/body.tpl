@@ -7,6 +7,7 @@
 			<th>Patron</th>
 			<th>Birth</th>
 			<th>Region</th>
+			<th>Date</th>
 			<th>Stat</th>
 		</tr>
 	</thead>
@@ -18,7 +19,8 @@
 			<td><?=$item['name']?></td>
 			<td><?=$item['patron']?></td>
 			<td><?=$item['date_birth']?></td>
-			<td><?=$item['region']?></td>
+			<td><?=$item['region'] ?: '-'?></td>
+			<td><?=$item['response_date']?></td>
 			<td><?=$item['request_ok'] ? 'ok' : '-'?></td>
 		</tr>
 		<?php endforeach; ?>
