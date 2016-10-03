@@ -36,10 +36,12 @@ class User {
 		return false;
 	}
 
-	public function checkAccess() {
-		if (isset($_SESSION['uid']) || User::authorizedByGet()) { 
+	public function checkAccess($route) {
+		if (isset($_SESSION['uid']) || User::authorizedByGet()) {
 			return true;
 		} else {
+			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/test')
+				return true;
 			User::login();
 			return false;		
 		}		

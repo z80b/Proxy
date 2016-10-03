@@ -12,19 +12,27 @@ class App {
 			'patron' => '',
 			'name' => '',
 			'fam' => '',
+			'response' => '',
 		];
 
 		$config = Flight::get('config');
 
 		$query = array_merge($defaults, array_diff_key(self::decode($_GET), [ 'auth' => NULL ]));
 
-		$response = json_decode(Http::getData($query), true);
+		$_response = Http::getData($query);
 
-		if (isset($response['error']) && !$response['error']) {
+		if (is_array($_response)) $response = $_response;
+		else {
+			$response = json_decode($_response, true);
+		}
+
+		if (isset($response['error']) && intval($response['error']) == 0) {
+
+			$date = date('Y-m-d h:i:s');
 
 			$stm = Flight::db()->prepare("
-				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`)
-				VALUES ('',:fam, :name, :patron, :birth, now(), :area, :status);
+				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
+				VALUES ('',:fam, :name, :patron, :birth, now(), :area, :status, :response_date, :response);
 			");
 
 			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
@@ -33,6 +41,8 @@ class App {
 			$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
 			$stm->bindValue('status', $response['error'] ? 0 : 1,  PDO::PARAM_INT);
+			$stm->bindValue('response_date', $date,  PDO::PARAM_STR);
+			$stm->bindValue('response', $quert['response'],  PDO::PARAM_STR);
 
 			$stm->execute();
 
@@ -50,7 +60,7 @@ class App {
 
 	public function getAllData() {
 		$stm = Flight::db()->prepare("
-			SELECT d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`
+			SELECT d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`, r.response_date AS `response_date`
 			FROM `getdata` AS `d`
 			LEFT JOIN `regions` AS `r` ON `r`.`id` = `d`.`area`
 		");
@@ -86,7 +96,7 @@ class App {
 		} else $page = 1;
 
 		$stm = Flight::db()->prepare("
-			SELECT SQL_CALC_FOUND_ROWS d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`
+			SELECT SQL_CALC_FOUND_ROWS d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`,  d.response_date AS `response_date`
 			FROM `getdata` AS `d`
 			LEFT JOIN `regions` AS `r` ON `r`.`id` = `d`.`area`
 			LIMIT :offset, :count
