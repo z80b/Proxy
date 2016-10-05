@@ -25,9 +25,9 @@ class Http {
 			$response = curl_exec($curlSession);
 			
 			curl_close($curlSession);			
-            return $response;//file_get_contents($link);
+            return $response;
         } catch(Exception $e) {       
-            return self::error;
+            die();
         }
 	}
 
