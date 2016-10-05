@@ -6,7 +6,7 @@ class App {
 
 	public function getData() {
 
-		$request_date = date('Y-m-d h:i:s');
+		$request_date = date('Y-m-d H:i:s');
 
 		$defaults = [
 			'area' => 0,
@@ -41,9 +41,9 @@ class App {
 			$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
 			$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
-			$stm->bindValue('status', $response['error'] ? 0 : 1,  PDO::PARAM_INT);
+			$stm->bindValue('status', (isset($response['error']) && $response['error']) ? 0 : 1,  PDO::PARAM_INT);
 			$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
-			$stm->bindValue('response', $query['response'],  PDO::PARAM_STR);
+			$stm->bindValue('response', json_encode($response),  PDO::PARAM_STR);
 
 			$stm->execute();
 
