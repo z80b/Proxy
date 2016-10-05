@@ -42,6 +42,10 @@ class User {
 		} else {
 			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/test')
 				return true;
+			
+			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/getdata')
+				return false
+
 			User::login();
 			return false;		
 		}		
