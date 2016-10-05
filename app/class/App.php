@@ -6,6 +6,8 @@ class App {
 
 	public function getData() {
 
+		$request_date = date('Y-m-d h:i:s');
+
 		$defaults = [
 			'area' => 0,
 			'birth' => '',
@@ -28,11 +30,10 @@ class App {
 
 		if (isset($response['error']) && intval($response['error']) == 0) {
 
-			$date = date('Y-m-d h:i:s');
 
 			$stm = Flight::db()->prepare("
 				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
-				VALUES ('',:fam, :name, :patron, :birth, now(), :area, :status, :response_date, :response);
+				VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :status, now(), :response);
 			");
 
 			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
@@ -41,8 +42,8 @@ class App {
 			$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
 			$stm->bindValue('status', $response['error'] ? 0 : 1,  PDO::PARAM_INT);
-			$stm->bindValue('response_date', $date,  PDO::PARAM_STR);
-			$stm->bindValue('response', $quert['response'],  PDO::PARAM_STR);
+			$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
+			$stm->bindValue('response', $query['response'],  PDO::PARAM_STR);
 
 			$stm->execute();
 
@@ -81,9 +82,9 @@ class App {
 	}
 
 	private function correctDate($date) {
-		$dt_parts = explode('/', $date);
-		if (count($dt_parts) == 3) {
-			return implode('-', array_reverse($dt_parts));
+		$dt = explode('/', $date);
+		if (count($dt) == 3) {
+			return "{$dt[2]}-{$dt[0]}-{$dt[1]}";
 		}
 		return '0000-00-00';
 	}

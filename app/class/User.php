@@ -40,14 +40,11 @@ class User {
 		if (isset($_SESSION['uid']) || User::authorizedByGet()) {
 			return true;
 		} else {
-			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/test')
-				return true;
-			
-			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/getdata')
-				return false
-
-			User::login();
-			return false;		
+			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/test') return true;
+			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] != '/api/getdata') {
+				User::login();
+				return false;
+			} else die();
 		}		
 	}
 
