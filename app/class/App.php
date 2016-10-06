@@ -134,7 +134,7 @@ class App {
 	    function translateItem($data, $_fields) {
 	        $new_data = array();
 	        foreach ($data as $key => $value) {
-	            if ($_fields[$key]) $new_data[$_fields[$key]] = $value;
+	            if (isset($_fields[$key])) $new_data[$_fields[$key]] = $value;
 	            else $new_data[$key] = $value;
 	        }
 	        return $new_data;
