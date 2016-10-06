@@ -43,7 +43,7 @@ class App {
 			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
 			$stm->bindValue('status', (isset($response['error']) && $response['error']) ? 0 : 1,  PDO::PARAM_INT);
 			$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
-			$stm->bindValue('response', json_encode($response),  PDO::PARAM_STR);
+			$stm->bindValue('response', json_encode($response, JSON_UNESCAPED_UNICODE),  PDO::PARAM_STR);
 
 			$stm->execute();
 
