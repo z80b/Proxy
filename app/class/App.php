@@ -45,7 +45,11 @@ class App {
 			$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
 			$stm->bindValue('response', json_encode($response, JSON_UNESCAPED_UNICODE),  PDO::PARAM_STR);
 
-			$stm->execute();
+			try {
+				$stm->execute();
+			} catch(Exception $e) {
+				die('Invalid datetime format');
+			}
 
 			if (isset($config['fields'])) {
 				$response = self::translateFields($response, $config['fields']);
