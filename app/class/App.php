@@ -28,15 +28,14 @@ class App {
 			$response = json_decode($_response, true);
 		}
 
-		
-
-
 		$stm = Flight::db()->prepare("
 			INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
 			VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :response_ok, now(), '');
 		");
 
-		$response_ok = (isset($response['error'])) ? intval($response['error']) : 2;
+		if (isset($response['error'])) {
+			$response_ok = (intval($response['error']) == 0) ? 1 : 0;
+		} else $response_ok = 2;
 
 		$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
 		$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
