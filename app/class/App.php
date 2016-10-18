@@ -28,28 +28,32 @@ class App {
 			$response = json_decode($_response, true);
 		}
 
+		
+
+
+		$stm = Flight::db()->prepare("
+			INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
+			VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :response_ok, now(), '');
+		");
+
+		$response_ok = (isset($response['error'])) ? intval($response['error']) : 2;
+
+		$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
+		$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
+		$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
+		$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
+		$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
+		$stm->bindValue('response_ok', $response_ok,  PDO::PARAM_INT);
+		$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
+		//$stm->bindValue('response', json_encode($response, JSON_UNESCAPED_UNICODE),  PDO::PARAM_STR);
+
+		try {
+			$stm->execute();
+		} catch(Exception $e) {
+			die('Invalid datetime format');
+		}
+
 		if (isset($response['error']) && intval($response['error']) == 0) {
-
-
-			$stm = Flight::db()->prepare("
-				INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
-				VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :status, now(), :response);
-			");
-
-			$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
-			$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
-			$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
-			$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
-			$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
-			$stm->bindValue('status', (isset($response['error']) && $response['error']) ? 0 : 1,  PDO::PARAM_INT);
-			$stm->bindValue('request_date', $request_date,  PDO::PARAM_STR);
-			$stm->bindValue('response', json_encode($response, JSON_UNESCAPED_UNICODE),  PDO::PARAM_STR);
-
-			try {
-				$stm->execute();
-			} catch(Exception $e) {
-				die('Invalid datetime format');
-			}
 
 			if (isset($config['fields'])) {
 				$response = self::translateFields($response, $config['fields']);
