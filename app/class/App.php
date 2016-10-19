@@ -33,8 +33,8 @@ class App {
 			VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :response_ok, now(), '');
 		");
 
-		if (isset($response['error'])) {
-			$response_ok = (intval($response['error']) == 0) ? 1 : 0;
+		if (isset($response['data'])) {
+			$response_ok = (count($response['data'])) ? 1 : 0;
 		} else $response_ok = 2;
 
 		$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
