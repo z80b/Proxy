@@ -9,6 +9,7 @@ class App {
 		$request_date = date('Y-m-d H:i:s');
 
 		$defaults = [
+			'login' => '',
 			'area' => 0,
 			'birth' => '',
 			'patron' => '',
@@ -30,13 +31,14 @@ class App {
 
 		$stm = Flight::db()->prepare("
 			INSERT INTO  getdata (`login`,`fam`, `name`, `patron`, `date_birth`, `date_ins`, `area`, `request_ok`, `response_date`, `response`)
-			VALUES ('',:fam, :name, :patron, :birth, :request_date, :area, :response_ok, now(), '');
+			VALUES (:login, :fam, :name, :patron, :birth, :request_date, :area, :response_ok, now(), '');
 		");
 
 		if (isset($response['data'])) {
 			$response_ok = (count($response['data'])) ? 1 : 0;
 		} else $response_ok = 2;
 
+		$stm->bindValue('login',  $query['login'],      PDO::PARAM_STR);
 		$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
 		$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
 		$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
