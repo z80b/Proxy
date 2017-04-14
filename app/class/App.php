@@ -20,7 +20,13 @@ class App {
 
 		$config = Flight::get('config');
 
-		$query = array_merge($defaults, array_diff_key(self::decode($_GET), [ 'auth' => NULL ]));
+		$get = self::decode($_GET);
+		$query = array_merge($defaults, array_diff_key($get, [ 'auth' => NULL ]));
+		
+		if (!isset($get['login'])) {
+			$parts = explode(':', $get['auth']);
+			$query['login'] = $parts[0];
+		}
 
 		$_response = Http::getData($query);
 

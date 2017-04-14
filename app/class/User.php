@@ -5,29 +5,29 @@
 */
 class User {
 
-	public function auth() {
+	static public function auth() {
 		if (self::authorized()) {
 			$_SESSION['uid'] = md5($_SERVER['UNIQUE_ID']);
 			Flight::redirect('/');
 		} else self::logout();
 	}
 
-	public function login() {
+	static public function login() {
 		Flight::renderBody('login', [ 'title' => 'Login page' ]);
 	}
 
-	public function logout() {
+	static public function logout() {
 		unset($_SESSION['uid']);
 		Flight::redirect('/');
 	}
 
-	public function authorized() {
+	static public function authorized() {
 		$c = Flight::get('config');
 		$q = Flight::request();
 		return $q->data['login'] == $c['login'] && $q->data['password'] == $c['password'];		
 	}
 
-	public function authorizedByGet() {
+	static public function authorizedByGet() {
 		if (isset($_GET['auth'])) {
 			$c = Flight::get('config');
 			$q = explode(':', $_GET['auth']);
@@ -36,7 +36,7 @@ class User {
 		return false;
 	}
 
-	public function checkAccess($route) {
+	static public function checkAccess($route) {
 		if (isset($_SESSION['uid']) || User::authorizedByGet()) {
 			return true;
 		} else {

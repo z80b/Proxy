@@ -30,4 +30,3 @@ Flight::map('renderBody', function($tpl, $params = [], $aliase = '') {
 	Flight::render('paginator', $params, 'paginator_content');
 	Flight::render('layout', $params);
 });
-
