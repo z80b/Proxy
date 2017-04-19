@@ -6,5 +6,5 @@ $connect_str = sprintf('mysql:host=%s;dnbname=%s;charset=%s', $cfg['host'], $cfg
 
 Flight::register('db', 'PDO', array($connect_str, $cfg['user'], $cfg['pass']), function($db){
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->query('use proxi');
+    $db->query('use proxy');
 });

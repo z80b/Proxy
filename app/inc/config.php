@@ -4,6 +4,11 @@ Flight::set('config', [
 	'login' => 'root',
 	'password' => '123',
 
+	'accounts'=> [
+		'root'=> '321',
+		'user'=> 'user'
+	],
+
 	'data_server' => 'https://raw.githubusercontent.com/z80b/Proxy/master/test_big.txt',
 #        'data_server' => 'http://fssp.dackb.ru/api/test',
 #       'data_server' => 'http://nagios.ckb.ru/api/getdata',
@@ -11,9 +16,9 @@ Flight::set('config', [
 
 	'db' => [
 		'host' => 'localhost',
-		'base' => 'proxi',
+		'base' => 'proxy',
 		'user' => 'root',
-		'pass' => '',
+		'pass' => '123',
 		'charset' => 'utf8'
 	],
 

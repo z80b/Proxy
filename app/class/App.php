@@ -76,7 +76,7 @@ class App {
 
 	public function getAllData() {
 		$stm = Flight::db()->prepare("
-			SELECT d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`, r.response_date AS `response_date`
+			SELECT d.fam, d.name, d.fam, d.patron, d.date_birth, d.request_ok, r.name AS `region`, d.response_date AS `response_date`
 			FROM `getdata` AS `d`
 			LEFT JOIN `regions` AS `r` ON `r`.`id` = `d`.`area`
 		");
@@ -104,7 +104,7 @@ class App {
 		return '0000-00-00';
 	}
 
-	public function viewData() {
+	static public function viewData() {
 
 		$query = Flight::request()->query;
 		if (isset($query['page'])) {
@@ -137,11 +137,11 @@ class App {
 	    Flight::renderBody('body', $variables);
 	}
 
-	public function debug($var)	{
+	static public function debug($var)	{
 		die('<pre>'. print_r($var, true) .'</pre>');
 	}
 
-	public function serverInfo() {
+	static public function serverInfo() {
 		Flight::renderBody('server', [ 'data' => $_SERVER, 'title' => 'Server variables' ]);
 	}
 

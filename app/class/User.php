@@ -9,7 +9,7 @@ class User {
 		$request = Flight::request();
 		$urls = ['/login', '/auth', '/api/getdata', 'api/test']; 
 		if (in_array($request->url, $urls)) return true;
-		else if (self::isAuthorized()) return true;
+		else if (self::is_authorized()) return true;
 		else {
 			if ($request != '/api/getdata') {
 				Flight::redirect('/login');
@@ -20,12 +20,14 @@ class User {
 
 	static private function access($login, $password) {
 		$config = Flight::get('config');
-		return $config['login'] == $login && $config['password'] == $password;
+		$accounts = $config['accounts'];
+		return isset($accounts[$login]) && $accounts[$login] == $password;
 	}
 
 	static public function auth() {
-		if (self::authorized()) {
-			$_SESSION['uid'] = md5($_SERVER['UNIQUE_ID']);
+		$request = Flight::request()->data;
+		if (self::access($request->login, $request->password)) {
+			$_SESSION['uid'] = md5($request->login .':'. $request->password);
 			Flight::redirect('/');
 		} else self::logout();
 	}
@@ -54,7 +56,7 @@ class User {
 		return false;
 	}
 
-	static public function isAuthorized() {
+	static public function is_authorized() {
 		if (isset($_SESSION['uid']) || User::authorizedByGet()) return true;
 		return false;
 	}
