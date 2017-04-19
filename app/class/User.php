@@ -5,6 +5,24 @@
 */
 class User {
 
+	static public function start($route) {
+		$request = Flight::request();
+		$urls = ['/login', '/auth', '/api/getdata', 'api/test']; 
+		if (in_array($request->url, $urls)) return true;
+		else if (self::isAuthorized()) return true;
+		else {
+			if ($request != '/api/getdata') {
+				Flight::redirect('/login');
+			}
+		}
+		return false;
+	}
+
+	static private function access($login, $password) {
+		$config = Flight::get('config');
+		return $config['login'] == $login && $config['password'] == $password;
+	}
+
 	static public function auth() {
 		if (self::authorized()) {
 			$_SESSION['uid'] = md5($_SERVER['UNIQUE_ID']);
@@ -36,6 +54,11 @@ class User {
 		return false;
 	}
 
+	static public function isAuthorized() {
+		if (isset($_SESSION['uid']) || User::authorizedByGet()) return true;
+		return false;
+	}
+
 	static public function checkAccess($route) {
 		if (isset($_SESSION['uid']) || User::authorizedByGet()) {
 			return true;
@@ -44,7 +67,7 @@ class User {
 			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] != '/api/getdata') {
 				User::login();
 				return false;
-			} else die();
+			} else die('!!!');
 		}		
 	}
 

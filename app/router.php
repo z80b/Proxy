@@ -1,7 +1,8 @@
 <?php
 
+Flight::route('*',            ['User', 'start'], true);
+
 Flight::route('/auth',        ['User', 'auth']);
-//Flight::route('*',            ['User', 'checkAccess'], true);
 Flight::route('/login',       ['User', 'login']);
 Flight::route('/logout',      ['User', 'logout']);
 
