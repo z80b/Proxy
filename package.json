@@ -10,9 +10,13 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "gulp": "~3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-include": "^2.3.1",
     "gulp-jade": "~1.1.0",
     "gulp-less": "~3.0.5",
     "gulp-minify-css": "~1.2.4",
-    "gulp-rename": "~1.2.2"
+    "gulp-rename": "~1.2.2",
+    "gulp-stylus": "^2.6.0"
   }
 }

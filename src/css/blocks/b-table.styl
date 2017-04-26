@@ -1,0 +1,16 @@
+.b-table
+	width 100%
+	
+	&__row
+		cursor default
+		
+	&__cell
+		padding 3px 6px
+		transition .3s all ease
+		
+		~/__row:nth-child(odd) &
+			background #ccc
+			
+		~/__row:hover &
+			background #999
+			

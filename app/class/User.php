@@ -7,7 +7,7 @@ class User {
 
 	static public function start($route) {
 		$request = Flight::request();
-		$urls = ['/login', '/auth', '/api/getdata', 'api/test']; 
+		$urls = ['/login', '/auth', '/logout', '/api/getdata', 'api/test']; 
 		if (in_array($request->url, $urls)) return true;
 		else if (self::is_authorized()) return true;
 		else {
@@ -38,7 +38,7 @@ class User {
 
 	static public function logout() {
 		unset($_SESSION['uid']);
-		Flight::redirect('/');
+		Flight::renderBody('logout', [ 'title' => 'Logout page' ]);
 	}
 
 	static public function authorized() {

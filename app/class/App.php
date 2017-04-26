@@ -2,7 +2,7 @@
 
 class App {
 
-	static $lines_per_page = 10;
+	static $lines_per_page = 20;
 
 	public function getData() {
 

@@ -1,11 +1,16 @@
 var gulp = require('gulp'),
 	less = require('gulp-less'),
 	jade = require('gulp-jade'),
+	stylus   = require('gulp-stylus'),
+	prefixer = require('gulp-autoprefixer'),
+	include  = require('gulp-include'),
+	coffee   = require('gulp-coffee'),
 	rename = require('gulp-rename'),
 	minifyCss = require('gulp-minify-css'),
 	pkg = require('./package.json');
 
 var _this = this;
+var debug = true;
 
 gulp.task('css', function() {
 	return gulp.src('src/css/styles.less')
@@ -13,6 +18,22 @@ gulp.task('css', function() {
 		.pipe(minifyCss())
 		.pipe(gulp.dest('public'));
 });
+
+gulp.task('styles', function() {
+	return gulp
+		.src('src/css/index.styl')
+        .pipe(stylus({
+            'include css': true,
+            'compress': !debug,
+            'rawDefine': {
+            	'inline-image': stylus.stylus.url()
+            }
+        }))
+        .pipe(prefixer(['> 0%']))
+        .pipe(rename('styles.css'))
+		.pipe(gulp.dest('public'));
+});
+
 
 gulp.task('html', function() {
 	console.log(pkg);
@@ -26,7 +47,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('default', function() {
-	return gulp.watch('src/css/*.less', function() {
-		gulp.run('css');
+	return gulp.watch('src/css/**/*.styl', function() {
+		gulp.run('styles');
 	});
 });

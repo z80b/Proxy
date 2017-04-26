@@ -5,15 +5,21 @@
 	<title><?=$title?></title>
 	<?php echo $head_content;?>
 </head>
-<body>
-<div class="page-wrapper">
-	<div class="panel panel-primary general-panel">
-	<div class="panel-heading">
-		<div class="panel-title"><?php echo $title; ?></div>
+<body class="b-page">
+<div class="b-panel">
+	<div class="b-panel__header">
+		<div class="b-panel__title"><?php echo $title; ?></div>
 	</div>
-	<div class="panel-body"><?php echo $body_content;?></div>
-	<div class="panel-footer"><?php if (isset($count)) echo 'Total: '. $count; ?></div>		
+	<div class="b-panel__body"><?php echo $body_content;?></div>
+	<div class="b-panel__footer">
+		<?php if (isset($count)) echo 'Total: '. $count; ?>
+		<?php if (isset($paginator_content)): ?>
+			<div class="b-pager-wrapper">
+			<?php echo $paginator_content; ?>
+			</div>
+		<?php endif ?>
+	</div>		
 </div>
-<?php if (isset($paginator_content)) echo $paginator_content; ?>
+
 </body>
 </html>

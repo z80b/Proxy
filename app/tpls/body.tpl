@@ -1,6 +1,6 @@
-<table class="table table-striped">
-	<thead>
-		<tr class="info">
+<table class="b-table">
+	<thead class="b-table__head">
+		<tr class="b-table__row">
 			<th>#</th>
 			<th>Fam</th>
 			<th>Name</th>
@@ -11,17 +11,17 @@
 			<th>Stat</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="b-table__body">
 		<?php foreach ($data as $key => $item): ?>
-		<tr>
-			<td><?=$offset + $key + 1?></td>
-			<td><?=$item['fam']?></td>
-			<td><?=$item['name']?></td>
-			<td><?=$item['patron']?></td>
-			<td><?=$item['date_birth']?></td>
-			<td><?=$item['region'] ?: '-'?></td>
-			<td><?=$item['response_date']?></td>
-			<td><?=$item['request_ok'] ? 'ok' : '-'?></td>
+		<tr class="b-table__row">
+			<td class="b-table__cell"><?=$offset + $key + 1?></td>
+			<td class="b-table__cell"><?=$item['fam']?></td>
+			<td class="b-table__cell"><?=$item['name']?></td>
+			<td class="b-table__cell"><?=$item['patron']?></td>
+			<td class="b-table__cell"><?=$item['date_birth']?></td>
+			<td class="b-table__cell"><?=$item['region'] ?: '-'?></td>
+			<td class="b-table__cell"><?=$item['response_date']?></td>
+			<td class="b-table__cell"><?=$item['request_ok'] ? 'ok' : '-'?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
