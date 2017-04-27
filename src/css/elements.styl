@@ -1,0 +1,27 @@
+$clear-block
+    display block
+    clear both
+    
+    &::after
+        content ''
+        display table
+        clear both
+        
+$control
+    display block
+    color #333
+    padding .5rem
+    border-radius .5rem
+    background #ccc
+    cursor default
+    
+$button
+    @extends $control
+    text-decoration none
+    border solid 1px #888
+    transition .3s all ease
+    cursor pointer
+    
+    &--active, &:hover
+        color #fff
+        background #666

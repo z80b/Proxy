@@ -1,8 +1,5 @@
 <?php
 
-/**
-* 
-*/
 class User {
 
 	static public function start($route) {
@@ -33,18 +30,12 @@ class User {
 	}
 
 	static public function login() {
-		Flight::renderBody('login', [ 'title' => 'Login page' ]);
+		Flight::renderBody(null, [ 'title' => 'Login page', 'popup' => 'login' ]);
 	}
 
 	static public function logout() {
 		unset($_SESSION['uid']);
-		Flight::renderBody('logout', [ 'title' => 'Logout page' ]);
-	}
-
-	static public function authorized() {
-		$c = Flight::get('config');
-		$q = Flight::request();
-		return $q->data['login'] == $c['login'] && $q->data['password'] == $c['password'];		
+		Flight::renderBody(null, [ 'title' => 'Logout page', 'popup' => 'logout' ]);
 	}
 
 	static public function authorizedByGet() {
@@ -59,18 +50,6 @@ class User {
 	static public function is_authorized() {
 		if (isset($_SESSION['uid']) || User::authorizedByGet()) return true;
 		return false;
-	}
-
-	static public function checkAccess($route) {
-		if (isset($_SESSION['uid']) || User::authorizedByGet()) {
-			return true;
-		} else {
-			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/api/test') return true;
-			if (isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] != '/api/getdata') {
-				User::login();
-				return false;
-			} else die('!!!');
-		}		
 	}
 
 }

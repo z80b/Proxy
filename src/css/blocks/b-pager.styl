@@ -2,25 +2,14 @@
 	display inline-block
 	list-style none
 	margin 0
-	padding 10px 0
-	font 300 14px/1 Arial
+	padding .5rem 0
+	font 300 1rem/1 Arial
 	
 	&__item
 		display inline-block
 		list-style none
-		padding 0 3px
+		padding 0 .2rem
 		
 	&__href
-		display block
-		text-decoration none
-		color #333
-		padding 5px
-		width 1em
-		border solid 1px #888
-		border-radius 5px
-		background #ccc
-		transition .3s all ease
-		
-		&--active, &:hover
-			color #fff
-			background #666
+		@extends $button
+		width 1.5em
