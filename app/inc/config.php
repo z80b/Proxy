@@ -28,7 +28,7 @@ Flight::set('config', [
 	],
 
 	'fields' => [
-		'FIOWithBirth' => 'FIODATEADDR',
+		'OrgName' => 'OrgAddr',
 		'NumberWithDate' => 'IspProizv',
 		'Document' => 'IspDocCourt',
 		'Article' => 'FinishIPDateReason',

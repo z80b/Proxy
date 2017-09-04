@@ -12,7 +12,7 @@ class App {
 			'login' => '',
 			'area' => 0,
 			'birth' => '',
-			'patron' => '',
+			'address' => '',
 			'name' => '',
 			'fam' => '',
 			'response' => '',
@@ -47,7 +47,7 @@ class App {
 		$stm->bindValue('login',  $query['login'],      PDO::PARAM_STR);
 		$stm->bindValue('fam',    $query['fam'],        PDO::PARAM_STR);
 		$stm->bindValue('name',   $query['name'],       PDO::PARAM_STR);
-		$stm->bindValue('patron', $query['patron'],     PDO::PARAM_STR);
+		$stm->bindValue('patron', $query['address'],     PDO::PARAM_STR);
 		$stm->bindValue('birth',  self::correctDate($query['birth']),      PDO::PARAM_STR);
 		$stm->bindValue('area',   $query['area'],       PDO::PARAM_INT);
 		$stm->bindValue('response_ok', $response_ok,  PDO::PARAM_INT);
